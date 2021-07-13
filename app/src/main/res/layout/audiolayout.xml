@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/my_audio_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp">
+
+
+        <ImageView
+            android:id="@+id/myIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="visible"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/ic_baseline_play_circle_filled_24"
+            android:adjustViewBounds="true"/>
+
+                <ImageView
+                    android:id="@+id/myIconStop"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/stop"
+                    android:adjustViewBounds="true"/>
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+</LinearLayout>

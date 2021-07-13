@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.GalleryVoult" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+   <!-- <style name="ButtonStyle" parent="android:style/Widget.Button">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:background">@color/orange</item>
+    </style>-->
+</resources>

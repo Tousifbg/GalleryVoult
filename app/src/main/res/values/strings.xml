@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+    //Headings
+    <string name="heading_one">CALCULATOR FUN</string>
+    <string name="heading_two">VOULT SECURITY</string>
+    <string name="heading_three">LOCK CONTENT</string>
+    <string name="heading_fourth">SECURE PASSWORD</string>
+
+    //Description
+    <string name="desc_one">Grow your Business By Accepting Card Payments with The New Card Reader</string>
+    <string name="desc_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+
+
+    <string name="banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitials">ca-app-pub-3940256099942544/1033173712</string>
+
+</resources>

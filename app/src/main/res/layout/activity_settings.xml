@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".Settings">
+
+    <LinearLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        android:background="@drawable/toolbar_shape"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Password"
+            android:textSize="15sp"
+            android:fontFamily="@font/g_light"
+            android:layout_marginBottom="15dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#9E9E9E"
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/g_light"
+            android:inputType="numberPassword"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPasswordChnage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_gradient_shape"
+        android:paddingHorizontal="20dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/g_light"
+        android:textStyle="bold"
+        android:text="Change Password"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginRight="16dp"/>
+
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+
+</RelativeLayout>
