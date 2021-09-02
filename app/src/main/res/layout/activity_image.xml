@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorPrimary"
     tools:context=".ImageActivity">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:visibility="gone"
         android:orientation="vertical"
         android:background="@drawable/toolbar_shape"
         android:gravity="center">
@@ -41,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
-        app:backgroundTint="#006064"
+        app:backgroundTint="@android:color/darker_gray"
         android:src="@drawable/ic_baseline_add_24"
         app:tint="@null"
         android:layout_above="@+id/adView"

@@ -6,40 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     tools:context=".Settings">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomL"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical"
-        android:background="@drawable/toolbar_shape"
+        android:background="@color/colorPrimary"
         android:gravity="center">
 
-        <TextView
-            android:id="@+id/txt"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Password"
-            android:textSize="15sp"
-            android:fontFamily="@font/g_light"
-            android:layout_marginBottom="15dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/passwordField"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#9E9E9E"
-            android:layout_marginHorizontal="16dp"
-            android:gravity="center_vertical"
-            android:textAlignment="center"
-            android:textSize="35sp"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/g_light"
-            android:inputType="numberPassword"/>
+            android:layout_margin="90dp"
+            android:src="@drawable/ads_placeholder_1"/>
 
     </LinearLayout>
 
@@ -50,6 +34,7 @@
         android:layout_below="@+id/toolbar_layout"
         android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"
+        android:visibility="gone"
         android:background="@drawable/btn_gradient_shape"
         android:paddingHorizontal="20dp"
         android:textSize="15sp"
@@ -58,6 +43,81 @@
         android:text="Change Password"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginRight="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/bottomL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@+id/adView">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your"
+                android:textColor="#bb9af9"
+                android:textSize="30sp"
+                android:fontFamily="@font/g_light"
+                android:layout_marginHorizontal="5dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txt"
+                android:text="Password"
+                android:textSize="30sp"
+                android:fontFamily="@font/g_light"
+                android:textColor="#4CAF50"
+                android:layout_marginHorizontal="5dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:passwordToggleEnabled="false"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/passwordFieldd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:hint="Type here..."
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/g_light"
+                android:inputType="numberPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/passChangeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="70dp"
+            android:src="@drawable/change_password"/>
+
+
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_centerHorizontal="true"

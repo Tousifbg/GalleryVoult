@@ -25,6 +25,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -305,14 +306,16 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private void showMyPasswordNewDialog() {
         myPasswordDialog = new Dialog(CalculatorActivity.this, android.R.style.Theme_DeviceDefault_Dialog);
-        myPasswordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
+        myPasswordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myPasswordDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         myPasswordDialog.setContentView(R.layout.password_dialog);
         myPasswordDialog.setCancelable(false);
         myPasswordDialog.show();
         ViewGroup root = (ViewGroup) getWindow().getDecorView().getRootView();
         applyDim(root, 0.5f);
 
-        TextView btnOK, upperTxt;
+        TextView upperTxt;
+        ImageView btnOK;
         EditText passwordField;
 
         btnOK = myPasswordDialog.findViewById(R.id.btnOK);
@@ -340,27 +343,10 @@ public class CalculatorActivity extends AppCompatActivity {
                         myPasswordDialog.dismiss();
                         clearDim(root);
 
-                        /*finish();
-                        overridePendingTransition(0, 0);
-                        startActivity(getIntent());
-                        overridePendingTransition(0, 0);*/
                     }
                     else {
                         passwordField.setError("Type your accurate password");
                     }
-
-                    /*editor = pref.edit();
-                    editor.putString("my_password", password_input_data);
-                    Log.e("SHARED_OK", "ok");
-                    editor.apply(); // commit changes
-                    Toast.makeText(CalculatorActivity.this, "Password saved!", Toast.LENGTH_SHORT).show();
-                    myPasswordDialog.dismiss();
-                    clearDim(root);
-
-                    finish();
-                    overridePendingTransition(0, 0);
-                    startActivity(getIntent());
-                    overridePendingTransition(0, 0);*/
                 }
             }
         });
@@ -369,14 +355,15 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private void showMyPasswordDialog() {
         myPasswordDialog = new Dialog(CalculatorActivity.this, android.R.style.Theme_DeviceDefault_Dialog);
-        myPasswordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
+        myPasswordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myPasswordDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         myPasswordDialog.setContentView(R.layout.password_dialog);
         myPasswordDialog.setCancelable(false);
         myPasswordDialog.show();
         ViewGroup root = (ViewGroup) getWindow().getDecorView().getRootView();
         applyDim(root, 0.5f);
 
-        TextView btnOK;
+        ImageView btnOK;
         EditText passwordField;
 
         btnOK = myPasswordDialog.findViewById(R.id.btnOK);

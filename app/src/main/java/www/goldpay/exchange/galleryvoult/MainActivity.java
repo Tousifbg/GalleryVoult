@@ -24,6 +24,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     String myPath;
 
-    LinearLayout btnSettings,btnAboutUs;
+    ImageView settings,about_us,rate_us;
 
     private InterstitialAd mInterstitialAd;
 
@@ -297,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -427,41 +428,6 @@ public class MainActivity extends AppCompatActivity {
                             intrestialsetup(intrestial_id);
                             Log.d(TAG, "onSuccess: showAds true "+"And intrestials="+intrestialEnabled);
 
-                            /*if (banner_show == true && intrestial_show == false){
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("banner_id", banner_id);
-                                editor.putString("interstitial_id", intrestial_id);
-                                editor.putBoolean("banner_show", banner_show);
-                                editor.putBoolean("interstitial_show", intrestial_show);
-                                Log.e("SHARED_OK", "ok");
-                                editor.apply(); // commit changes
-                            }
-                            else if (intrestial_show == true && banner_show == false){
-
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("banner_id", banner_id);
-                                editor.putString("interstitial_id", intrestial_id);
-                                editor.putBoolean("banner_show", banner_show);
-                                editor.putBoolean("interstitial_show", intrestial_show);
-                                Log.e("SHARED_OK", "ok");
-                                editor.apply(); // commit changes
-
-                                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                                        RelativeLayout.LayoutParams.WRAP_CONTENT);
-                                params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,RelativeLayout.TRUE);
-                                bottom_layout.setLayoutParams(params);
-
-                            }
-                            else if (banner_show == true && intrestial_show == true){
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("banner_id", banner_id);
-                                editor.putString("interstitial_id", intrestial_id);
-                                editor.putBoolean("banner_show", banner_show);
-                                editor.putBoolean("interstitial_show", intrestial_show);
-                                Log.e("SHARED_OK", "ok");
-                                editor.apply(); // commit changes
-                                //showBothAds(banner_id, intrestial_id);
-                            }*/
                         }
                     }
 
@@ -1001,9 +967,9 @@ public class MainActivity extends AppCompatActivity {
         btnFile = findViewById(R.id.btnFile);
         btnImage = findViewById(R.id.btnImage);
 
-        btnAboutUs = findViewById(R.id.btnAboutUs);
-        btnSettings = findViewById(R.id.btnSettings);
-
+        about_us = findViewById(R.id.abt_us);
+        settings = findViewById(R.id.settings);
+        rate_us = findViewById(R.id.rate_us);
 
 
         showNow=new ShowNow(this);

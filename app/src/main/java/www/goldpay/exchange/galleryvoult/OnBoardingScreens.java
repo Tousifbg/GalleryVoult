@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +16,8 @@ public class OnBoardingScreens extends AppCompatActivity {
 
     ViewPager mSLideViewPager;
     LinearLayout mDotLayout;
-    Button backbtn, nextbtn, skipbtn;
+    ImageView previousBtn, nextBtn;
+    Button skipbtn;
 
     TextView[] dots;
     ViewPagerAdapter viewPagerAdapter;
@@ -26,11 +28,11 @@ public class OnBoardingScreens extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_boarding_screens);
 
-        backbtn = findViewById(R.id.backbtn);
-        nextbtn = findViewById(R.id.nextbtn);
+        previousBtn = findViewById(R.id.previousBtn);
+        nextBtn = findViewById(R.id.nextBtn);
         skipbtn = findViewById(R.id.skipButton);
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
+        previousBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -43,7 +45,7 @@ public class OnBoardingScreens extends AppCompatActivity {
             }
         });
 
-        nextbtn.setOnClickListener(new View.OnClickListener() {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -114,11 +116,11 @@ public class OnBoardingScreens extends AppCompatActivity {
 
             if (position > 0){
 
-                backbtn.setVisibility(View.VISIBLE);
+                previousBtn.setVisibility(View.VISIBLE);
 
             }else {
 
-                backbtn.setVisibility(View.INVISIBLE);
+                previousBtn.setVisibility(View.INVISIBLE);
 
             }
 

@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -462,10 +463,19 @@ public class VideoActivity extends AppCompatActivity implements OnItemClick{
                         getApplicationContext().deleteFile(file.getName());
                     }
                 }
+                MediaScannerConnection.scanFile(this,
+                        new String[] { myPath }, null,
+                        new MediaScannerConnection.OnScanCompletedListener() {
+
+                            public void onScanCompleted(String path, Uri uri) {
+                                Log.i("TAG", "Finished scanning " + path);
+                            }
+                        });
+                Toast.makeText(this, ""+myPath+ "moved to: " +destination, Toast.LENGTH_SHORT).show();
+
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }
-        Toast.makeText(this, ""+myPath+ "moved to: " +destination, Toast.LENGTH_SHORT).show();
     }
 }

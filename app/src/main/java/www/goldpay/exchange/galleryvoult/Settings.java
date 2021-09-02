@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroupOverlay;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,9 +29,8 @@ import java.util.Random;
 
 public class Settings extends AppCompatActivity {
 
-    AppCompatButton btnPasswordChnage;
+    //AppCompatButton btnPasswordChnage;
 
-    EditText passwordField;
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -44,6 +44,10 @@ public class Settings extends AppCompatActivity {
     String pref_banner, pref_interstitial;
 
     Boolean bannerShow, InterstitialShow;
+
+    EditText passwordFieldd;
+
+    ImageView passChangeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,9 @@ public class Settings extends AppCompatActivity {
 
         if (password_code != null && !password_code.equals("")){
             Log.e("TOUSIF", "password exist");
-            passwordField.setText(password_code);
-            passwordField.setFocusable(false);
-            passwordField.setClickable(false);
+            passwordFieldd.setText(password_code);
+            passwordFieldd.setFocusable(false);
+            passwordFieldd.setClickable(false);
         }else {
             Log.e("TOUSIF", "password not exist");
         }
@@ -91,7 +95,7 @@ public class Settings extends AppCompatActivity {
             Toast.makeText(this, "banner false", Toast.LENGTH_SHORT).show();
         }
 
-        btnPasswordChnage.setOnClickListener(new View.OnClickListener() {
+        passChangeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showMyPasswordDialog();   //show password dialog
@@ -122,7 +126,7 @@ public class Settings extends AppCompatActivity {
         ViewGroup root = (ViewGroup) getWindow().getDecorView().getRootView();
         applyDim(root, 0.5f);
 
-        TextView btnOK;
+        ImageView btnOK;
         EditText passwordField;
 
         btnOK = myPasswordDialog.findViewById(R.id.btnOK);
@@ -176,8 +180,9 @@ public class Settings extends AppCompatActivity {
 
 
     private void initViews() {
-        btnPasswordChnage = findViewById(R.id.btnPasswordChnage);
-        passwordField = findViewById(R.id.passwordField);
+        passChangeBtn = findViewById(R.id.passChangeBtn);
+        //passwordField = findViewById(R.id.passwordField);
+        passwordFieldd = findViewById(R.id.passwordFieldd);
         //adView = findViewById(R.id.adView);
     }
 }

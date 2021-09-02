@@ -1,100 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#527fa0"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/toolbar_shape"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_above="@+id/main_layout">
 
-        <TextView
-            android:id="@+id/txt"
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculator"
-            android:textSize="20sp"
-            android:fontFamily="@font/g_light"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+            android:layout_margin="60dp"
+            android:src="@drawable/ads_placeholder"/>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginHorizontal="20dp"
-        android:layout_centerInParent="true">
+        android:layout_margin="20dp"
+        android:layout_above="@+id/bottom_layout">
 
         <RelativeLayout
             android:id="@+id/btnImage"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@drawable/img_bg">
+            android:layout_height="85dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Images"
-                android:textAllCaps="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="90dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/g_light"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/my_images_btn"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/btnVideo"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/video_bg">
+            android:layout_height="85dp"
+            android:layout_marginTop="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Videos"
-                android:textAllCaps="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="90dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/g_light"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/my_videos_btn"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/btnAudio"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/audio_bg">
+            android:layout_height="85dp"
+            android:layout_marginTop="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Audio"
-                android:textAllCaps="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="90dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/g_light"
-                android:textStyle="bold"
-                android:textSize="22sp"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/my_audios_btn"/>
 
         </RelativeLayout>
 
@@ -122,221 +103,41 @@
 
     </LinearLayout>
 
-    <!--<RelativeLayout
-        android:layout_below="@+id/toolbar_layout"
-        android:id="@+id/buttonsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/linearone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginTop="15dp"
-            android:layout_marginHorizontal="10dp">
-
-            <RelativeLayout
-                android:id="@+id/btnAudio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_marginHorizontal="5dp"
-                android:background="@drawable/gradeint_bg_one">
-
-                <ImageView
-                    android:id="@+id/iconone"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_outline_music_note_24"
-                    android:layout_alignParentRight="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/iconone"
-                    android:text="Audio"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/g_light"
-                    android:textSize="21sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_marginHorizontal="5dp"
-                android:background="@drawable/gradeint_bg_two">
-
-                <ImageView
-                    android:id="@+id/icontwo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_outline_image_24"
-                    android:layout_alignParentRight="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/icontwo"
-                    android:text="Picture"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/g_light"
-                    android:textSize="21sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lineartwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_below="@+id/linearone"
-            android:layout_marginTop="15dp"
-            android:layout_marginHorizontal="10dp">
-
-            <RelativeLayout
-                android:id="@+id/btnVideo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_marginHorizontal="5dp"
-                android:background="@drawable/gradeint_bg_three">
-
-                <ImageView
-                    android:id="@+id/iconthree"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_outline_play_circle_outline_24"
-                    android:layout_alignParentRight="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/iconthree"
-                    android:text="Video"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/g_light"
-                    android:textSize="21sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/btnFile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_marginHorizontal="5dp"
-                android:background="@drawable/gradeint_bg_four">
-
-                <ImageView
-                    android:id="@+id/iconfour"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/ic_outline_file_copy_24"
-                    android:layout_alignParentRight="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/iconfour"
-                    android:text="File"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/g_light"
-                    android:textSize="21sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>-->
 
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#006064"
-        android:weightSum="2"
+        android:background="#ffffff"
+        android:weightSum="3"
+        android:paddingVertical="5dp"
+        android:gravity="center"
         android:layout_above="@+id/adView">
 
-        <LinearLayout
-            android:id="@+id/btnAboutUs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:padding="4dp">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/about_us" />
+                android:id="@+id/rate_us"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="85dp"
+                android:src="@drawable/rate_us" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="About Us"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/g_light"
-                android:textColor="#90FC34"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
+        <ImageView
+            android:id="@+id/abt_us"
+            android:layout_width="0dp"
             android:layout_weight="1"
-            android:padding="4dp">
+            android:layout_height="85dp"
+            android:src="@drawable/about_us" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_outline_settings_24" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/g_light"
-                android:textColor="#90FC34"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/settings"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="85dp"
+            android:src="@drawable/my_settings_btn" />
 
     </LinearLayout>
 
