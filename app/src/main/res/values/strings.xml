@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">CalculatorVoult</string>
 
     //Headings
     <string name="heading_one">CALCULATOR FUN</string>
@@ -16,5 +16,7 @@
 
     <string name="banner">ca-app-pub-3940256099942544/6300978111</string>
     <string name="interstitials">ca-app-pub-3940256099942544/1033173712</string>
+
+    <string name="rating_error">Please select rate</string>
 
 </resources>

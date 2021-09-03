@@ -50,4 +50,15 @@
         android:layout_centerInParent="true"
         android:src="@drawable/stop" />
 
+
+    <ImageView
+        android:id="@+id/restoreImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/restore_btn"
+        android:layout_below="@+id/imgView"
+        android:layout_marginTop="12dp"
+        style="@style/SelectableItemBackground"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

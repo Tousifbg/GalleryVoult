@@ -42,10 +42,31 @@
 
     </RelativeLayout>
 
-    <VideoView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/videoView"
-        android:layout_below="@+id/toolbar_layout"/>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/toolbar_layout"
+        android:layout_above="@+id/restoreVid">
+
+        <VideoView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/videoView"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"/>
+
+    </FrameLayout>
+
+
+
+    <ImageView
+        android:id="@+id/restoreVid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/restore_btn"
+        android:layout_marginTop="12dp"
+        style="@style/SelectableItemBackground"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

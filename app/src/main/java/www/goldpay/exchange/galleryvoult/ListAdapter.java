@@ -1,5 +1,6 @@
 package www.goldpay.exchange.galleryvoult;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -66,6 +67,7 @@ public class ListAdapter  extends RecyclerView.Adapter<ListAdapter.MyViewHolder>
                 Intent intent = new Intent(context,ImageData.class);
                 intent.putExtra("imgPath",String.valueOf(uri));
                 context.startActivity(intent);
+                //((Activity)context).finish();
             }
         });
 

@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,9 +24,11 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -203,12 +206,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
+                            finish();
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
                 }
                 else{
                     startActivity(intent);
+                    finish();
                 }
                /* if (counter == 1) {                   //show ads after 2 clicks on button
                     if (pref_interstitial != null) {
@@ -260,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
+                            finish();
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
@@ -267,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     Log.d(TAG, "onClick: else");
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -287,12 +294,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
+                            finish();
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
                 }
                 else{
                     startActivity(intent);
+                    finish();
                 }
 
             }
@@ -334,6 +343,44 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        rate_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ratingDialog();
+            }
+        });
+    }
+
+    private void ratingDialog() {
+        final android.app.AlertDialog alert_dialog;
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_rating, null);
+        builder.setView(view);
+        final RatingBar rating_bar = view.findViewById(R.id.rating_bar);
+        TextView btn_submit = view.findViewById(R.id.btn_submit);
+        TextView tv_no = view.findViewById(R.id.tv_no);
+
+        alert_dialog = builder.create();
+        alert_dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        alert_dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimationTheme;
+        alert_dialog.show();
+
+        btn_submit.setOnClickListener(v -> {
+            if (rating_bar.getRating() >= 3) {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")));
+
+                } catch (ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")));
+                }
+                alert_dialog.dismiss();
+            } else if (rating_bar.getRating() <= 0) {
+                Toast.makeText(MainActivity.this, "" + getString(R.string.rating_error), Toast.LENGTH_SHORT).show();
+            }
+
+        });
+        tv_no.setOnClickListener(v -> alert_dialog.dismiss());
     }
 
     private void showBannerAds(String banner_id){

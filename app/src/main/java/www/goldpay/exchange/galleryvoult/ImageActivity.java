@@ -22,6 +22,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -229,7 +230,6 @@ public class ImageActivity extends AppCompatActivity implements OnItemClick{
     }
 
     private void display() {
-
         myimageFile = findImage(sdCard);
 
 
@@ -249,6 +249,22 @@ public class ImageActivity extends AppCompatActivity implements OnItemClick{
             Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void notifyNewFileToSystem(File sdCard) {
+        String type = null;
+        String extension = MimeTypeMap.getFileExtensionFromUrl(sdCard.getAbsolutePath());
+        if (extension != null) {
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        }
+        MediaScannerConnection.scanFile(getApplicationContext(),
+                new String[]{sdCard.getAbsolutePath()},
+                new String[]{type},
+                (path, uri) -> {
+                    Log.e("SCANNED_PATH", "Path: " + path);
+                    Log.e("SCANNED_URI", "Uri: " + uri);
+                }
+        );
     }
 
     @Override

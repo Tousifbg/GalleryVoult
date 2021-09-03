@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/my_images_btn"/>
+                android:src="@drawable/my_images_btn"
+                style="@style/SelectableItemBackground"/>
 
         </RelativeLayout>
 
@@ -60,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
+                style="@style/SelectableItemBackground"
                 android:src="@drawable/my_videos_btn"/>
 
         </RelativeLayout>
@@ -75,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:scaleType="fitXY"
+                style="@style/SelectableItemBackground"
                 android:src="@drawable/my_audios_btn"/>
 
         </RelativeLayout>
