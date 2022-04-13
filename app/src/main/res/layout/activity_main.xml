@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:hwads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     tools:context=".MainActivity">
@@ -108,7 +109,16 @@
 
 
 
+    <com.huawei.hms.ads.banner.BannerView
+        android:id="@+id/hw_banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        hwads:adId="r8idkpsndp"
+        hwads:bannerSize="BANNER_SIZE_360_57"/>
     <LinearLayout
+        android:layout_marginBottom="10dp"
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -116,9 +126,8 @@
         android:background="#ffffff"
         android:weightSum="3"
         android:paddingVertical="5dp"
-        android:gravity="center"
-        android:layout_above="@+id/adView">
-
+        android:layout_above="@id/hw_banner_view"
+        android:gravity="center">
 
             <ImageView
                 android:id="@+id/rate_us"
@@ -148,6 +157,7 @@
 
 
     <RelativeLayout
+        android:visibility="invisible"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"

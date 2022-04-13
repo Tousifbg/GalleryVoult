@@ -487,4 +487,9 @@ public class ImageActivity extends AppCompatActivity implements OnItemClick{
 
         Toast.makeText(this, ""+myPath+ "moved to: " +expFile, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

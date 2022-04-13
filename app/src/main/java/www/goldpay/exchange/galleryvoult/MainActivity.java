@@ -45,6 +45,9 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.huawei.hms.ads.AdParam;
+import com.huawei.hms.ads.BannerAdSize;
+import com.huawei.hms.ads.banner.BannerView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -126,6 +129,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Obtain BannerView.
+        BannerView bannerView = findViewById(R.id.hw_banner_view);
+        // Set the ad unit ID and ad dimensions. "testw6vs28auh3" is a dedicated test ad unit ID.
+        bannerView.setAdId("r8idkpsndp");
+        //        bannerView.setAdId("r8idkpsndp");
+        bannerView.setBannerAdSize(BannerAdSize.BANNER_SIZE_360_57);
+        // Set the refresh interval to 30 seconds.
+        bannerView.setBannerRefresh(30);
+        // Create an ad request to load an ad.
+        AdParam adParam = new AdParam.Builder().build();
+        bannerView.loadAd(adParam);
+
         adshere=findViewById(R.id.adView);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -145,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         //CALL API
         if (NetworkUtils.isNetworkConnected(MainActivity.this))
         {
-            callAPI();
+//            callAPI();
         }else {
             Log.e("TOUSIF","Internet is not connected");
         }
@@ -195,8 +210,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ImageActivity.class);
+                startActivity(intent);
 
-                if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
+                /*if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
 
 
                     mInterstitialAd.show(MainActivity.this);
@@ -206,16 +222,13 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
-                            finish();
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
                 }
                 else{
-                    startActivity(intent);
-                    finish();
                 }
-               /* if (counter == 1) {                   //show ads after 2 clicks on button
+               *//* if (counter == 1) {                   //show ads after 2 clicks on button
                     if (pref_interstitial != null) {
                         intrestialsetup(pref_interstitial);
                         if (mInterstitialAd != null && intrestial_show == true) {
@@ -251,8 +264,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this,VideoActivity.class);
+                startActivity(intent);
 
-                if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
+               /* if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
                     Log.d(TAG, "onClick: true ");
 
                     intrestialsetup(intrestial_id);
@@ -265,16 +279,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
-                            finish();
+
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
                 }
                 else{
                     Log.d(TAG, "onClick: else");
-                    startActivity(intent);
-                    finish();
-                }
+                }*/
             }
         });
 
@@ -283,8 +295,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this,AudioActivity.class);
+                startActivity(intent);
 
-                if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
+               /* if (intrestialEnabled.equalsIgnoreCase("true")&& mInterstitialAd!=null){
 
 
                     mInterstitialAd.show(MainActivity.this);
@@ -294,15 +307,12 @@ public class MainActivity extends AppCompatActivity {
                         public void onAdDismissedFullScreenContent() {
                             super.onAdDismissedFullScreenContent();
                             startActivity(intent);
-                            finish();
                             Log.d("TAG", "The ad was dismissed.");
                         }
                     });
                 }
                 else{
-                    startActivity(intent);
-                    finish();
-                }
+                }*/
 
             }
         });
@@ -312,7 +322,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this,Settings.class);
-                if (counter == 1) {                   //show ads after 2 clicks on button
+                startActivity(intent);
+
+                /*if (counter == 1) {                   //show ads after 2 clicks on button
                     if (pref_interstitial != null) {
                         intrestialsetup(pref_interstitial);
                         if (mInterstitialAd != null && intrestial_show == true) {
@@ -337,10 +349,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     //increment counter
-                    startActivity(intent);
                     counter++;
                     Log.e("MyClickCounter", String.valueOf(counter));
-                }
+                }*/
             }
         });
 
